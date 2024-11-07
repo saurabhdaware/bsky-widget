@@ -2,19 +2,61 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  padding: 40px;
+  margin: 0px;
+}
+
+body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
 }
 
-.container {
-  display: flex;
+html,
+body,
+.page-container,
+.preview-code {
+  height: 100%;
 }
 
-.page-section {
-  flex: 1;
+bsky-widget {
+  width: 350px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #fff;
+  width: 400px;
+  height: 100%;
+  z-index: 1;
+  box-shadow: 1px 1px 12px 4px #0002;
+}
+
+.preview-code {
+  margin-left: 400px;
   display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 42px;
+}
+
+.preview {
+  padding: 0px 42px;
+}
+
+.title {
+  text-align: center;
+  margin: 42px 0px;
+  font-size: 1rem;
+}
+
+.title h1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   align-items: center;
   justify-content: center;
 }
@@ -22,20 +64,16 @@ body {
 .form-container {
   text-align: left;
   display: flex;
-  gap: 12px;
+  gap: 32px;
   flex-direction: column;
-  width: 100%;
 }
 
 .form-wrapper {
-  max-width: 500px;
   width: 100%;
+  padding: 24px 42px;
 }
 
-.form-section {
-  flex-direction: column;
-}
-
+/* Input styles */
 .input-container label {
   display: block;
   font-weight: 500;
@@ -92,9 +130,24 @@ pre {
 .code-output {
   margin-top: 12px;
   background-color: #f9f9f9;
-  border-radius: 4px;
+  border-radius: 6px;
   width: 100%;
   overflow: auto;
+  max-width: 500px;
+  position: relative;
+  border: 1px solid #0002;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #000;
+  border: 1px solid #000;
+  color: #fff;
 }
 
 .switch {

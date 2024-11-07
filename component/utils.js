@@ -2,11 +2,10 @@
 export function formatParagraph(text) {
   // Regular expression to match URLs (http, https, www, or just a domain)
   const urlPattern =
-    /\b((?:https?:\/\/(?:www\.)?|www\.)[a-zA-Z0-9.-]+(\.[a-zA-Z]{2,})(\/[a-zA-Z0-9._~:/?#\[\]@!$&'()*+,;=%-]*)?)|@[a-zA-Z0-9._]+/gi;
+    /\b((?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[a-zA-Z0-9._~:/?#\[\]@!$&'()*+,;=%-]*)?)|@[a-zA-Z0-9._]+/gi;
 
   // Replace URLs with anchor tags
   let formattedText = text.replace(urlPattern, (url) => {
-    console.log({ url });
     if (url.startsWith("@")) {
       const href = `https://bsky.app/profile/${url.slice(1)}`;
       // its a bluesky handle!!
