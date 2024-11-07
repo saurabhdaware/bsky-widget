@@ -61,6 +61,27 @@ bsky-widget {
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .sidebar {
+    box-shadow: none;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    height: unset;
+  }
+
+  .page-container,
+  .preview-code {
+    height: unset;
+  }
+
+  .preview-code {
+    margin-left: 0px;
+    flex-direction: column;
+    padding: 42px 12px;
+  }
+}
+
 .form-container {
   text-align: left;
   display: flex;
@@ -127,13 +148,17 @@ pre {
   margin: 0px;
 }
 
+.code-section {
+  width: 100%;
+}
+
 .code-output {
   margin-top: 12px;
   background-color: #f9f9f9;
   border-radius: 6px;
   width: 100%;
   overflow: auto;
-  max-width: 500px;
+  max-width: min(500px, 100%);
   position: relative;
   border: 1px solid #0002;
 }
