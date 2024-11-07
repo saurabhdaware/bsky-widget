@@ -163,6 +163,18 @@
       hljs.highlightBlock(document.querySelector("code"));
     };
 
+    const copyCode = () => {
+      var copyText = document.querySelector("code");
+      const testIp = document.createElement('textarea');
+      testIp.style.position = 'fixed';
+      testIp.style.top = '-10000px';
+      document.body.append(testIp);
+      testIp.value = copyText.innerText.replace(/\n/g, '\r\n');
+      testIp.select();
+      testIp.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    }
+
     document.querySelector('form#generator-form').addEventListener("submit", (e) => {
       e.preventDefault();
       setWidgetPreview();
@@ -176,6 +188,14 @@
 
     handle.addEventListener('blur', () => {
       setWidgetPreview();
+    })
+
+    document.querySelector('button.copy-button').addEventListener('click', () => {
+      copyCode();
+      document.querySelector('button.copy-button').innerText = 'Copied';
+      setTimeout(() => {
+        document.querySelector('button.copy-button').innerText = 'Copy';
+      }, 2000);
     })
 
     hljs.initHighlightingOnLoad();
