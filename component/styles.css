@@ -1,0 +1,163 @@
+/* Utils and Common Styling */
+* {
+  box-sizing: border-box;
+}
+
+h3 {
+  margin: 0px;
+  font-size: var(--bsky-text-title);
+}
+
+p {
+  margin: 0px;
+}
+
+a {
+  color: var(--bsky-interactive);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.widget-container {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 1px 1px 8px 1px #0002;
+  height: 100%;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
+}
+
+.card-content-container {
+  position: relative;
+  font-size: var(--bsky-text-medium);
+  line-height: 1.3rem;
+  padding-bottom: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  --bsky-interactive: #1185fe;
+  --bsky-interactive-hover: #4ca2fe;
+  --bsky-text-on-theme: #fff;
+  --bsky-text-title: 1.4rem;
+  --bsky-text-medium: 1rem;
+  --bsky-text-small: 0.9rem;
+}
+
+.card-content-container.show {
+  opacity: 1;
+}
+
+.loading-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-follow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 50px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: absolute;
+  width: 100%;
+  top: -32px;
+}
+
+.avatar-follow-container-placeholder {
+  height: 48px;
+}
+
+.no-banner .avatar-follow-container {
+  position: relative;
+  top: unset;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.no-banner .avatar-follow-container-placeholder {
+  height: 0px;
+}
+
+.padded {
+  padding: 0px 14px;
+}
+
+.bsky-button {
+  background-color: var(--bsky-interactive);
+  text-decoration: none !important;
+  color: var(--bsky-text-on-theme);
+  padding: 9px 16px;
+  border-radius: 18px;
+  font-weight: normal;
+  font-size: var(--bsky-text-small);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bsky-button:hover {
+  background-color: var(--bsky-interactive-hover);
+}
+
+/* Actual Styling */
+.banner {
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  background-size: cover;
+  position: relative;
+  background-color: var(--bsky-interactive);
+}
+
+.profile-header-container {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  position: relative;
+}
+
+.name-handle-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.followers {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.count {
+  font-weight: bold;
+}
+
+.avatar {
+  border-radius: 100%;
+  border: 2px solid #fff;
+}
+
+.profile-description-container {
+  padding-top: 12px;
+  max-width: calc(100% - 28px);
+}
+
+.logo-anchor {
+  position: absolute;
+  text-decoration: none;
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+}
