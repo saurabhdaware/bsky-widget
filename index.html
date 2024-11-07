@@ -78,6 +78,12 @@
     const showBannerEl = document.querySelector("input#show-banner");
     const code = document.querySelector("code");
 
+    const searchParams = new URLSearchParams(window.location.search);
+    const handleParam = searchParams.get('handle');
+    if (handleParam) {
+      handle.value = handleParam;
+    }
+
     function dedent(text) {
       const lines = text.split("\n");
 
