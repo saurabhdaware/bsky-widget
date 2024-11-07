@@ -75,6 +75,21 @@ class ProfileCard extends HTMLElement {
     }
   }
 
+  static get observedAttributes() {
+    return ["data-handle", "data-show-description", "data-show-banner"];
+  }
+
+  attributeChangedCallback(attr, oldValue, newValue) {
+    if (
+      ["data-handle", "data-show-description", "data-show-banner"].includes(
+        attr
+      ) &&
+      oldValue != newValue
+    ) {
+      this.connectedCallback();
+    }
+  }
+
   setHeight(value) {
     this.style.minHeight = value;
     this.shadowRoot.querySelector(".widget-container").style.minHeight = value;

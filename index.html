@@ -2,16 +2,104 @@
 <html>
 
 <head>
-  <style>
-    body {
-      padding: 40px;
-    }
-  </style>
+  <link rel="stylesheet" href="./playground.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
 </head>
 
 <body>
-  <bsky-widget data-handle="patak.dev"></bsky-widget>
+  <div class="container">
+    <div class="page-section form-section">
+      <div class="form-wrapper">
+        <div class="form-container">
+          <div class="input-container">
+            <label for="handle">Handle</label>
+            <input placeholder="saurabhd.bsky.social" value="saurabhd.bsky.social" type="text" id="handle" />
+          </div>
+
+          <div class="input-container checkbox-container">
+            <label for="show-description">Show Description</label>
+            <label class="switch">
+              <input id="show-description" checked type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="input-container checkbox-container">
+            <label for="show-banner">Show Banner</label>
+            <label class="switch">
+              <input id="show-banner" checked type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <button class="generate-button">Generate</button>
+        </div>
+        <div class="code-output">
+          <pre><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="page-section">
+      <bsky-widget data-handle="saurabhd.bsky.social" data-show-description="false"
+        data-show-banner="false"></bsky-widget>
+    </div>
+  </div>
   <script src="./component/card.js" type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    const generateButton = document.querySelector("button.generate-button");
+    const handle = document.querySelector("input#handle");
+    const showDescriptionEl = document.querySelector("input#show-description");
+    const showBannerEl = document.querySelector("input#show-banner");
+    const code = document.querySelector("code");
+
+    function dedent(text) {
+      const lines = text.split("\n");
+
+      const indentLevel = Math.min(
+        ...lines
+          .filter((line) => line.trim())
+          .map((line) => line.match(/^(\s*)/)[0].length)
+      );
+
+      // Remove the common indentation from each line
+      return lines
+        .map((line) => line.slice(indentLevel)) // Remove leading whitespace
+        .join("\n") // Join lines back together
+        .trim(); // Trim any leading or trailing whitespace
+    }
+
+    const setWidgetPreview = () => {
+      const widget = document.querySelector("bsky-widget");
+      widget.setAttribute("data-handle", handle.value);
+      widget.setAttribute("data-show-banner", showBannerEl.checked);
+      widget.setAttribute("data-show-description", showDescriptionEl.checked);
+
+      let additionalProps = '';
+      if (!showDescriptionEl.checked) {
+        additionalProps += `\n    data-show-description="${showDescriptionEl.checked}"`
+      }
+
+      if (!showBannerEl.checked) {
+        additionalProps += `\n    data-show-banner="${showBannerEl.checked}"`
+      }
+
+      code.innerHTML = dedent(`
+  &lt;bsky-widget 
+    data-handle="${handle.value}"${additionalProps}
+  &gt;
+  &lt;/bsky-widget&gt;`);
+      code.removeAttribute("data-highlighted");
+
+      hljs.highlightBlock(document.querySelector("code"));
+    };
+
+    generateButton.addEventListener("click", () => {
+      setWidgetPreview();
+    });
+
+    hljs.initHighlightingOnLoad();
+    setWidgetPreview();
+
+  </script>
 </body>
 
 </html>
