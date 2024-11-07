@@ -10,6 +10,7 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
+  overflow: auto;
 }
 
 html,
@@ -61,6 +62,21 @@ bsky-widget {
   justify-content: center;
 }
 
+@media (max-width: 1230px) {
+  .page-container,
+  .preview-code {
+    height: unset;
+  }
+
+  .preview-code {
+    flex-direction: column;
+  }
+
+  .code-output {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .sidebar {
     box-shadow: none;
@@ -70,14 +86,15 @@ bsky-widget {
     height: unset;
   }
 
-  .page-container,
-  .preview-code {
-    height: unset;
+  .code-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .preview-code {
     margin-left: 0px;
-    flex-direction: column;
     padding: 42px 12px;
   }
 }
@@ -148,17 +165,13 @@ pre {
   margin: 0px;
 }
 
-.code-section {
-  width: 100%;
-}
-
 .code-output {
   margin-top: 12px;
   background-color: #f9f9f9;
   border-radius: 6px;
   width: 100%;
   overflow: auto;
-  max-width: min(500px, 100%);
+  max-width: 500px;
   position: relative;
   border: 1px solid #0002;
 }
