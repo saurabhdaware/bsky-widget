@@ -1,6 +1,6 @@
 {
   "name": "bsky-widget",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Profile Card / Widget for Bluesky",
   "main": "dist/index.js",
   "module": "dist/index.js",
