@@ -1,6 +1,6 @@
 {
   "name": "bsky-widget",
-  "version": "0.0.8",
+  "version": "0.0.8-refactor.1",
   "description": "Profile Card / Widget for Bluesky",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -12,7 +12,7 @@
     "build:lib": "LIB=true vite build",
     "build:playground": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm build:lib"
   },
   "files": [
     "dist/index.js"
