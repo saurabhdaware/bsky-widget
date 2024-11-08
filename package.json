@@ -21,7 +21,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@stackblitz/sdk": "^1.11.0",
     "abell": "1.0.0-beta.5",
+    "highlight.js": "^11.10.0",
     "vite": "^5.4.10"
   }
 }

@@ -8,9 +8,15 @@ importers:
 
   .:
     devDependencies:
+      '@stackblitz/sdk':
+        specifier: ^1.11.0
+        version: 1.11.0
       abell:
         specifier: 1.0.0-beta.5
         version: 1.0.0-beta.5
+      highlight.js:
+        specifier: ^11.10.0
+        version: 11.10.0
       vite:
         specifier: ^5.4.10
         version: 5.4.10
@@ -377,6 +383,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@stackblitz/sdk@1.11.0':
+    resolution: {integrity: sha512-DFQGANNkEZRzFk1/rDP6TcFdM82ycHE+zfl9C/M/jXlH68jiqHWHFMQURLELoD8koxvu/eW5uhg94NSAZlYrUQ==}
+
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
@@ -528,6 +537,10 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  highlight.js@11.10.0:
+    resolution: {integrity: sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ==}
+    engines: {node: '>=12.0.0'}
 
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
@@ -947,6 +960,8 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.24.4':
     optional: true
 
+  '@stackblitz/sdk@1.11.0': {}
+
   '@types/estree@1.0.6': {}
 
   abell@1.0.0-beta.5:
@@ -1176,6 +1191,8 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  highlight.js@11.10.0: {}
 
   http-errors@2.0.0:
     dependencies:

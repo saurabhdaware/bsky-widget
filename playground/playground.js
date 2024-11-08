@@ -1,4 +1,12 @@
-const generateButton = document.querySelector("button.generate-button");
+import sdk from "@stackblitz/sdk";
+import hljs from "highlight.js/lib/core";
+import xml from "highlight.js/lib/languages/xml";
+import css from "highlight.js/lib/languages/css";
+
+// Then register the languages you need
+hljs.registerLanguage("html", xml);
+hljs.registerLanguage("css", css);
+
 const handle = document.querySelector("input#handle");
 const showDescriptionEl = document.querySelector("input#show-description");
 const showBannerEl = document.querySelector("input#show-banner");
@@ -54,32 +62,32 @@ const setWidgetPreview = () => {
 
   let additionalProps = "";
   if (!showDescriptionEl.checked) {
-    additionalProps += `\n    data-show-description="${showDescriptionEl.checked}"`;
+    additionalProps += `\n  data-show-description="${showDescriptionEl.checked}"`;
   }
 
   if (!showBannerEl.checked) {
-    additionalProps += `\n    data-show-banner="${showBannerEl.checked}"`;
+    additionalProps += `\n  data-show-banner="${showBannerEl.checked}"`;
   }
 
   code.innerHTML = dedent(`
 &lt;!-- Paste in your CSS to avoid layout shift --&gt;
 &lt;style&gt;
 bsky-widget {
-min-height: 400px;
-width: 350px;
+  min-height: 400px;
+  width: 350px;
 }
 &lt;/style&gt;
 
 &lt;!-- Paste wherever you want to render the card --&gt;
 &lt;bsky-widget 
-data-handle="${handle.value}"${additionalProps}
+  data-handle="${handle.value}"${additionalProps}
 &gt;
 &lt;/bsky-widget&gt;
 
 &lt;!-- Paste before end of body --&gt;
 &lt;script 
-src="https://unpkg.com/bsky-widget@~0.0/dist/index.js" 
-type="module"
+  src="https://unpkg.com/bsky-widget@~0.0/dist/index.js" 
+  type="module"
 &gt;
 &lt;/script&gt;`);
   code.removeAttribute("data-highlighted");
@@ -149,7 +157,7 @@ document.querySelector("button.copy-button").addEventListener("click", () => {
 hljs.initHighlightingOnLoad();
 setWidgetPreview();
 
-window.StackBlitzSDK.embedProjectId(
+sdk.embedProjectId(
   "stackblitz-vanilla-project",
   "bsky-widget-vanilla-project",
   {
@@ -162,15 +170,11 @@ window.StackBlitzSDK.embedProjectId(
   }
 );
 
-window.StackBlitzSDK.embedProjectId(
-  "stackblitz-framework-project",
-  "bsky-widget-vue",
-  {
-    forceEmbedLayout: true,
-    openFile: "package.json,src/App.vue",
-    theme: "light",
-    clickToLoad: true,
-    hideExplorer: true,
-    hideNavigation: true,
-  }
-);
+sdk.embedProjectId("stackblitz-framework-project", "bsky-widget-vue", {
+  forceEmbedLayout: true,
+  openFile: "package.json,src/App.vue",
+  theme: "light",
+  clickToLoad: true,
+  hideExplorer: true,
+  hideNavigation: true,
+});
