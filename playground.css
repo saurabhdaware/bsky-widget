@@ -24,6 +24,13 @@ bsky-widget {
   width: 350px;
 }
 
+a:not(.button) {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+}
+
 .sb-embed {
   border: 1px solid #eee;
   border-radius: 8px;
@@ -153,9 +160,7 @@ bsky-widget {
   border-color: #6b7280;
 }
 
-.generate-button {
-  display: block;
-  width: 100%;
+.button {
   padding: 12px;
   font-size: 1rem;
   font-weight: 500;
@@ -165,10 +170,25 @@ bsky-widget {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
-.generate-button:hover {
+.button:hover {
   background-color: #333;
+}
+
+.generate-button {
+  display: block;
+  width: 100%;
+}
+
+.bsky-share-button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 12px 24px;
 }
 
 .hljs {
@@ -253,6 +273,12 @@ input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
+}
+
+.github-corner {
+  position: fixed;
+  top: 0px;
+  right: 0px;
 }
 
 .github-corner:hover .octo-arm {

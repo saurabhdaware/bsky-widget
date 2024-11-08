@@ -14,12 +14,11 @@ class ProfileCard extends HTMLElement {
       </style>
       <div class="widget-container"></div>
     `;
-
-    this.setCardDefaultBounds();
   }
 
   async connectedCallback() {
     try {
+      this.setCardDefaultBounds();
       const response = await this.fetchProfile();
       if (response.error) {
         throw new Error(response.message);

@@ -57,7 +57,7 @@
               </label>
             </div>
           </div>
-          <button class="generate-button" type="submit">Generate</button>
+          <button class="button generate-button" type="submit">Generate</button>
         </form>
       </section>
     </div>
@@ -75,6 +75,16 @@
         </div>
       </section>
 
+      <section class="docs-container share-container">
+        <div style="text-align: right;">
+          <a id="bsky-share-button" class="bsky-share-button button" target="_blank" rel="noreferrer noopener"
+            href="https://bsky.app/intent/compose?text=Check out the BlueSky Widget Card at https://bsky-widget.saurabhdaware.in/">
+            <span><img width="20px" src="./component/bluesky-logo.svg" alt="BlueSky Logo" /></span>
+            <span>Share with BlueSky Frens 🤗</span>
+          </a>
+        </div>
+      </section>
+
       <section class="docs-container">
         <h2>Examples</h2>
         <h3>In Vanilla Project</h3>
@@ -83,6 +93,12 @@
         <h3>In Frameworks</h3>
         <div class="sb-embed" id="stackblitz-framework-project"></div>
       </section>
+
+      <footer class="docs-container">
+        Built with <a target="_blank" href="https://vite.dev">Vite</a>, <a target="_blank"
+          href="https://abelljs.org">Abell</a>, and <a href="https://youtu.be/dBUxfFoQpuo?si=RhXnApKmRYADA8YX&t=36"
+          target="_blank">Love</a> by <a href="https://saurabhd.bsky.social" target="_blank">@saurabhd.bsky.social</a>
+      </footer>
     </div>
   </main>
 
@@ -114,6 +130,22 @@
     const handleParam = searchParams.get('handle');
     if (handleParam) {
       handle.value = handleParam;
+    }
+
+    const setShare = (handle) => {
+      const shareText = encodeURIComponent(`I just created my BlueSky Widget Card 🦋 <br/><br/>Check it out and create yours at https://bsky-widget.saurabhdaware.in/?handle=${handle}`);
+      document.querySelector('#bsky-share-button').href = `https://bsky.app/intent/compose?text=${shareText}`;
+    }
+
+    const appendHandleParam = (handleValue) => {
+      // Get the current URL
+      const url = new URL(window.location.href);
+
+      // Set or update the 'handle' parameter
+      url.searchParams.set('handle', handleValue);
+
+      // Update the URL in the address bar without reloading the page
+      window.history.pushState({}, '', url);
     }
 
     function dedent(text) {
@@ -169,6 +201,7 @@
   &gt;
   &lt;/script&gt;`);
       code.removeAttribute("data-highlighted");
+      setShare(handle.value);
 
 
       const boundCheckInterval = setInterval(() => {
@@ -206,6 +239,7 @@
     document.querySelector('form#generator-form').addEventListener("submit", (e) => {
       e.preventDefault();
       setWidgetPreview();
+      appendHandleParam(handle.value);
     });
 
     document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
@@ -216,6 +250,7 @@
 
     handle.addEventListener('blur', () => {
       setWidgetPreview();
+      appendHandleParam(handle.value);
     })
 
     document.querySelector('button.copy-button').addEventListener('click', () => {
@@ -236,6 +271,19 @@
       {
         forceEmbedLayout: true,
         openFile: 'index.html',
+        theme: 'light',
+        clickToLoad: true,
+        hideExplorer: true,
+        hideNavigation: true,
+      }
+    );
+
+    window.StackBlitzSDK.embedProjectId(
+      'stackblitz-framework-project',
+      'bsky-widget-vue',
+      {
+        forceEmbedLayout: true,
+        openFile: 'package.json,src/App.vue',
         theme: 'light',
         clickToLoad: true,
         hideExplorer: true,
