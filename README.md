@@ -6,7 +6,7 @@ Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
 
 <table>
 <tr>
-<td>
+<td width="50%">
 
 ```html
 <!-- Paste in your CSS to avoid layout shift -->
