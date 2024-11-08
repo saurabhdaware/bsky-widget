@@ -6,8 +6,10 @@ Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
 
 <table>
 <tr>
-<th>Code</th><th>Preview</th>
+  <th>Code</th>
+  <th>Preview</th>
 </tr>
+  
 <tr>
 <td width="50%">
 
@@ -30,7 +32,7 @@ Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
 ></script>
 ```
 
-<td>
+</td>
 
 <td>
 <img alt="Patak's BlueSky Profile Widget" src="/repo-assets/card.png" width="500px" />
