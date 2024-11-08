@@ -18,7 +18,7 @@ Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
 </style>
 
 <!-- Paste wherever you want to render the card -->
-<bsky-widget data-handle="patak.dev"> </bsky-widget>
+<bsky-widget data-handle="patak.dev"></bsky-widget>
 
 <!-- Paste before end of body -->
 <script
@@ -30,7 +30,7 @@ Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
 <td>
 
 <td>
-<img alt="Patak's BlueSky Profile Widget" src="/repo-assets/card.png" width="300px" />
+<img alt="Patak's BlueSky Profile Widget" src="/repo-assets/card.png" width="500px" />
 </td>
 
 </tr>
