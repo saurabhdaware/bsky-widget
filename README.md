@@ -1,6 +1,6 @@
 # Bluesky Profile Widget
 
-Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
+Unofficial Bluesky Profile Cards for Bluesky Gang 🦋
 
 ## Usage
 
@@ -35,7 +35,7 @@ Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
 </td>
 
 <td>
-<img alt="Patak's BlueSky Profile Widget" src="/repo-assets/card.png" width="500px" />
+<img alt="Patak's Bluesky Profile Widget" src="/repo-assets/card.png" width="500px" />
 </td>
 
 </tr>
