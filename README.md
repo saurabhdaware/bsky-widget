@@ -6,6 +6,9 @@ Unofficial BlueSky Profile Cards for BlueSky Gang 🦋
 
 <table>
 <tr>
+<th>Code</th><th>Preview</th>
+</tr>
+<tr>
 <td width="50%">
 
 ```html
