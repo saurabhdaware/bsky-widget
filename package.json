@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:lib": "LIB=true vite build",
+    "build:playground": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "pnpm build"
   },
@@ -20,9 +22,6 @@
   "license": "MIT",
   "devDependencies": {
     "abell": "1.0.0-beta.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "vite": "^5.4.10",
-    "vite-plugin-jsx-to-html": "^0.0.2"
+    "vite": "^5.4.10"
   }
 }
