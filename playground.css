@@ -120,6 +120,10 @@ a:not(.button) {
   .preview-code {
     padding: 42px 12px;
   }
+
+  .docs-container {
+    padding: 24px 12px;
+  }
 }
 
 .form-container {
