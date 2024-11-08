@@ -1,6 +1,6 @@
 {
   "name": "bsky-widget",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Profile Card / Widget for Bluesky",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -8,9 +8,11 @@
   "homepage": "https://bsky-widget.saurabhdaware.in/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build:lib && vite build:playground",
+    "build:lib": "LIB=true vite build",
+    "build:playground": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm build:lib"
   },
   "files": [
     "dist/index.js"
@@ -20,9 +22,6 @@
   "license": "MIT",
   "devDependencies": {
     "abell": "1.0.0-beta.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "vite": "^5.4.10",
-    "vite-plugin-jsx-to-html": "^0.0.2"
+    "vite": "^5.4.10"
   }
 }

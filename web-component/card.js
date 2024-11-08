@@ -1,4 +1,4 @@
-import cardStyles from "./styles.css?raw";
+import cardStyles from "./styles.css?inline";
 import cardTemplate from "./template.abell";
 
 const stylesNotDefinedValues = ["0px", "none"];
@@ -118,4 +118,4 @@ class ProfileCard extends HTMLElement {
   }
 }
 
-customElements.define("bsky-widget", ProfileCard);
+export default ProfileCard;
