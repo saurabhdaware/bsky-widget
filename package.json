@@ -1,6 +1,6 @@
 {
   "name": "bsky-widget",
-  "version": "0.0.8-refactor.1",
+  "version": "0.0.9",
   "description": "Profile Card / Widget for Bluesky",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -8,7 +8,7 @@
   "homepage": "https://bsky-widget.saurabhdaware.in/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build:lib && vite build:playground",
     "build:lib": "LIB=true vite build",
     "build:playground": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1",
