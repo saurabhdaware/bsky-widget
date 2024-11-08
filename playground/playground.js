@@ -18,10 +18,24 @@ if (handleParam) {
   handle.value = handleParam;
 }
 
+function createBSkyIntent(msg) {
+  // If I'm on windows it should be <br>, if not it should be \n
+  const lineBreak = navigator.userAgent.toLowerCase().includes("windows")
+    ? "<br>"
+    : "\n";
+  return `https://bsky.app/intent/compose?text=${encodeURIComponent(
+    msg.join(lineBreak)
+  )}`;
+}
+
 const setShare = (handle) => {
-  const shareText = encodeURIComponent(
-    `I just created my Bluesky Widget Card 🦋 <br/><br/>Check it out and create yours at-<br/><br/> https://bsky-widget.saurabhdaware.in/?handle=${handle}`
-  );
+  const shareText = createBSkyIntent([
+    "I just created my Bluesky Widget Card 🦋",
+    "",
+    "Check it out and create yours at-",
+    "",
+    `https://bsky-widget.saurabhdaware.in/?handle=${handle}`,
+  ]);
   document.querySelector(
     "#bsky-share-button"
   ).href = `https://bsky.app/intent/compose?text=${shareText}`;
