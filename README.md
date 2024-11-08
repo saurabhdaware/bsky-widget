@@ -35,7 +35,7 @@ Unofficial Bluesky Profile Cards for Bluesky Gang 🦋
 </td>
 
 <td>
-<img alt="Patak's Bluesky Profile Widget" src="/repo-assets/card.png" width="500px" />
+<img alt="Patak's Bluesky Profile Widget" src="/.github/repo-assets/card.png" width="500px" />
 </td>
 
 </tr>
