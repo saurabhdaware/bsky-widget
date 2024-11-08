@@ -24,6 +24,13 @@ bsky-widget {
   width: 350px;
 }
 
+.sb-embed {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 450px;
+}
+
 .sidebar {
   position: fixed;
   top: 0px;
@@ -35,17 +42,24 @@ bsky-widget {
   box-shadow: 1px 1px 12px 4px #0002;
 }
 
-.preview-code {
+.preview-code-container {
   margin-left: 400px;
+}
+.preview-code {
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
   padding: 42px;
+  min-height: 580px;
 }
 
 .preview {
   padding: 0px 42px;
+}
+
+.docs-container {
+  padding: 24px 42px;
 }
 
 .title {
@@ -239,4 +253,30 @@ input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
 }

@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  <div class="page-container">
+  <main class="page-container">
     <div class="sidebar">
       <div class="title">
         <h1>
@@ -33,7 +33,7 @@
           <span>BlueSky Widget</span>
         </h1>
       </div>
-      <div class="form-wrapper">
+      <section class="form-wrapper">
         <form id="generator-form" class="form-container">
           <div class="input-container">
             <label for="handle">Handle</label>
@@ -59,21 +59,34 @@
           </div>
           <button class="generate-button" type="submit">Generate</button>
         </form>
-      </div>
+      </section>
     </div>
-    <div class="preview-code">
-      <div class="preview">
-        <bsky-widget data-handle="saurabhd.bsky.social" data-show-description="false"
-          data-show-banner="false"></bsky-widget>
-      </div>
-      <div class="code-section">
-        <div class="code-output">
-          <pre><code class="language-html"></code></pre>
-          <button class="copy-button">Copy</button>
+    <div class="preview-code-container">
+      <section class="preview-code">
+        <div class="preview">
+          <bsky-widget data-handle="saurabhd.bsky.social" data-show-description="false"
+            data-show-banner="false"></bsky-widget>
         </div>
-      </div>
+        <div class="code-section">
+          <div class="code-output">
+            <pre><code class="language-html"></code></pre>
+            <button class="copy-button">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-container">
+        <h2>Examples</h2>
+        <h3>In Vanilla Project</h3>
+        <div class="sb-embed" id="stackblitz-vanilla-project"></div>
+
+        <h3>In Frameworks</h3>
+        <div class="sb-embed" id="stackblitz-framework-project"></div>
+      </section>
     </div>
-  </div>
+  </main>
+
+
   <a href="https://github.com/saurabhdaware/bsky-widget" target="_blank" class="github-corner"
     aria-label="View source on GitHub">
     <svg width="80" height="80" viewBox="0 0 250 250"
@@ -89,6 +102,7 @@
   </a>
   <script src="./component/card.js" type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.umd.js"></script>
   <script>
     const generateButton = document.querySelector("button.generate-button");
     const handle = document.querySelector("input#handle");
@@ -214,6 +228,20 @@
 
     hljs.initHighlightingOnLoad();
     setWidgetPreview();
+
+
+    window.StackBlitzSDK.embedProjectId(
+      'stackblitz-vanilla-project',
+      'bsky-widget-vanilla-project',
+      {
+        forceEmbedLayout: true,
+        openFile: 'index.html',
+        theme: 'light',
+        clickToLoad: true,
+        hideExplorer: true,
+        hideNavigation: true,
+      }
+    );
 
   </script>
 </body>

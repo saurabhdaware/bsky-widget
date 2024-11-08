@@ -1,9 +1,11 @@
 {
   "name": "bsky-widget",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Profile Card / Widget for Bluesky",
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "type": "module",
+  "homepage": "https://bsky-widget.saurabhdaware.in/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
