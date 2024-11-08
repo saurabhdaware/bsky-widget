@@ -157,24 +157,34 @@ document.querySelector("button.copy-button").addEventListener("click", () => {
 hljs.initHighlightingOnLoad();
 setWidgetPreview();
 
-sdk.embedProjectId(
-  "stackblitz-vanilla-project",
-  "bsky-widget-vanilla-project",
-  {
+let themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const theme = themeQuery.matches ? "dark" : "light";
+
+Promise.all([
+  sdk.embedProjectId(
+    "stackblitz-vanilla-project",
+    "bsky-widget-vanilla-project",
+    {
+      forceEmbedLayout: true,
+      openFile: "index.html",
+      theme,
+      clickToLoad: true,
+      hideExplorer: true,
+      hideNavigation: true,
+    }
+  ),
+  sdk.embedProjectId("stackblitz-framework-project", "bsky-widget-vue", {
     forceEmbedLayout: true,
-    openFile: "index.html",
-    theme: "light",
+    openFile: "package.json,src/App.vue",
+    theme,
     clickToLoad: true,
     hideExplorer: true,
     hideNavigation: true,
-  }
-);
-
-sdk.embedProjectId("stackblitz-framework-project", "bsky-widget-vue", {
-  forceEmbedLayout: true,
-  openFile: "package.json,src/App.vue",
-  theme: "light",
-  clickToLoad: true,
-  hideExplorer: true,
-  hideNavigation: true,
+  })
+]).then(([vm1, vm2]) => {
+  themeQuery.addEventListener('change', (query) => {
+    const theme = query.matches ? "dark" : "light";
+    vm1.editor.setTheme(theme);
+    vm2.editor.setTheme(theme);
+  });
 });
