@@ -1,6 +1,8 @@
 # Bluesky Profile Widget
 
-Unofficial Bluesky Profile Cards for Bluesky Gang 🦋
+Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
+
+**Card Generator UI: https://bsky-widget.saurabhdaware.in/**
 
 ## Usage
 
