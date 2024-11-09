@@ -20,7 +20,7 @@ if (handleParam) {
 
 const setShare = (handle) => {
   const shareText = encodeURIComponent(
-    `I just created my Bluesky Widget Card 🦋 <br/><br/>Check it out and create yours at-<br/><br/> https://bsky-widget.saurabhdaware.in/?handle=${handle}`
+    `I just created my Bluesky Widget Profile Card 🦋. Check it out and create yours at https://bsky-widget.saurabhdaware.in/?handle=${handle}`
   );
   document.querySelector(
     "#bsky-share-button"
