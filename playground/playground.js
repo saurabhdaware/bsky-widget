@@ -56,7 +56,10 @@ function dedent(text) {
 
 const setWidgetPreview = () => {
   const widget = document.querySelector("bsky-widget");
-  widget.setAttribute("data-handle", handle.value);
+  // RLO character ends up in input when you copy-paste from bluesky. This should remove it
+  const handleValue = handle.value.replace(/[\u202A-\u202E]/g, "").trim();
+
+  widget.setAttribute("data-handle", handleValue);
   widget.setAttribute("data-show-banner", showBannerEl.checked);
   widget.setAttribute("data-show-description", showDescriptionEl.checked);
 
@@ -80,7 +83,7 @@ bsky-widget {
 
 &lt;!-- Paste wherever you want to render the card --&gt;
 &lt;bsky-widget 
-  data-handle="${handle.value}"${additionalProps}
+  data-handle="${handleValue}"${additionalProps}
 &gt;
 &lt;/bsky-widget&gt;
 
@@ -91,10 +94,9 @@ bsky-widget {
 &gt;
 &lt;/script&gt;`);
   code.removeAttribute("data-highlighted");
-  setShare(handle.value);
+  setShare(handleValue);
 
   const boundCheckInterval = setInterval(() => {
-    console.log(widget.dataset.rendered);
     if (widget.dataset.rendered === "true") {
       clearInterval(boundCheckInterval);
 
@@ -102,7 +104,7 @@ bsky-widget {
         const widgetBounds = widget.getClientRects()[0];
         const height = Math.round(widgetBounds.height);
         const width = Math.round(widgetBounds.width);
-        console.log(widgetBounds, height, width);
+
         code.innerHTML = code.innerHTML
           .replace("400px", `${height}px`)
           .replace("350px", `${width}px`);

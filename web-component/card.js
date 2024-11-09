@@ -17,6 +17,10 @@ class ProfileCard extends HTMLElement {
   }
 
   async connectedCallback() {
+    if (!this.dataset.handle) {
+      return;
+    }
+
     try {
       this.setCardDefaultBounds();
       const response = await this.fetchProfile();
