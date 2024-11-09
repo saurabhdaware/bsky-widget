@@ -26,6 +26,7 @@ a:hover {
   position: relative;
   font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
   width: 100%;
+  text-align: left;
 }
 
 .card-content-container {
