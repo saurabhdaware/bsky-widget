@@ -23,3 +23,9 @@ export function formatParagraph(text) {
 
   return formattedText;
 }
+
+export function sanitizeInput(input) {
+  const element = document.createElement("div");
+  element.textContent = input;
+  return element.innerHTML;
+}
