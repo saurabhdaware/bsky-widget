@@ -51,6 +51,7 @@ a:not(.button) {
 }
 
 .preview-code-container {
+  padding-top: 30px;
   margin-left: 400px;
 }
 .preview-code {
