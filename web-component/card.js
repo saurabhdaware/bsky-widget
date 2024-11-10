@@ -1,5 +1,6 @@
 import cardStyles from "./styles.css?inline";
 import cardTemplate from "./template.abell";
+import { sanitizeInput as s } from "./utils";
 
 const stylesNotDefinedValues = ["0px", "none"];
 
@@ -95,13 +96,13 @@ class ProfileCard extends HTMLElement {
       this.dataset.showDescription === "false" ? false : true;
 
     container.innerHTML = cardTemplate({
-      displayName: profile.displayName,
-      handle: profile.handle,
-      description: showDescription ? profile.description : undefined,
-      avatar: profile.avatar,
-      banner: showBanner ? profile.banner : undefined,
-      followersCount: profile.followersCount,
-      followsCount: profile.followsCount,
+      displayName: s(profile.displayName),
+      handle: s(profile.handle),
+      description: showDescription ? s(profile.description) : undefined,
+      avatar: s(profile.avatar),
+      banner: showBanner ? s(profile.banner) : undefined,
+      followersCount: s(profile.followersCount),
+      followsCount: s(profile.followsCount),
     });
 
     const cardContentContainer = container.querySelector(

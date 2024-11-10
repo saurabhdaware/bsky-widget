@@ -6,6 +6,7 @@
 h2 {
   margin: 0px;
   font-size: var(--bsky-text-title);
+  line-height: var(--bsky-text-title-line-height);
 }
 
 p {
@@ -45,6 +46,7 @@ a:hover {
   --bsky-interactive-hover: #4ca2fe;
   --bsky-text-on-theme: #fff;
   --bsky-text-title: 1.4rem;
+  --bsky-text-title-line-height: 1.8rem;
   --bsky-text-medium: 1rem;
   --bsky-text-small: 0.9rem;
 }
@@ -134,7 +136,7 @@ a:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .followers {
