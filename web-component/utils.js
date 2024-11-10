@@ -7,6 +7,11 @@ export function formatParagraph(text) {
   // Replace URLs with anchor tags
   let formattedText = text.replace(urlPattern, (url) => {
     if (url.startsWith("@")) {
+      if (!url.includes(".")) {
+        // Probably just random tag and not bsky profile
+        return url;
+      }
+
       const href = `https://bsky.app/profile/${url.slice(1)}`;
       // its a bluesky handle!!
       return `<a href="${href}" target="_blank" rel="noopener noreferrer">${url}</a>`;
