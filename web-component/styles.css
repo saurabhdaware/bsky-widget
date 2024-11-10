@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-h3 {
+h2 {
   margin: 0px;
   font-size: var(--bsky-text-title);
 }
