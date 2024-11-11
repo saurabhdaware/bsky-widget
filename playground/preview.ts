@@ -4,7 +4,13 @@ import { copyCode, dedent, setShare } from "./utils";
 const code = document.querySelector<HTMLElement>("code")!;
 const widget = document.querySelector<HTMLElement>("bsky-widget")!;
 
-const getCode = ({ handle, showDescription, showBanner }) => {
+type WidgetPropsType = {
+  handle: string;
+  showDescription: boolean;
+  showBanner: boolean;
+};
+
+const getCode = ({ handle, showDescription, showBanner }: WidgetPropsType) => {
   let additionalProps = "";
   if (showDescription === false) {
     additionalProps += `\n  data-show-description="${showDescription}"`;
@@ -37,7 +43,11 @@ bsky-widget {
 &lt;/script&gt;`);
 };
 
-export const setPreview = ({ handle, showDescription, showBanner }) => {
+export const setPreview = ({
+  handle,
+  showDescription,
+  showBanner,
+}: WidgetPropsType) => {
   // RLO character ends up in input when you copy-paste from bluesky. This should remove it
   const handleValue = handle.replace(/[\u202A-\u202E]/g, "").trim();
   setShare(handleValue);
