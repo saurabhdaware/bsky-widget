@@ -7,7 +7,7 @@ const isLibBuild = process.env.LIB === "true";
 const buildConfig: BuildOptions = isLibBuild
   ? {
       lib: {
-        entry: path.resolve(__dirname, "web-component/index.ts"),
+        entry: path.resolve(__dirname, "lib/index.ts"),
         name: "bsky-widget",
         fileName: "index",
         formats: ["es"],
