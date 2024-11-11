@@ -23,6 +23,7 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "packageManager": "pnpm@9.0.6",
   "devDependencies": {
     "@playwright/test": "^1.48.2",
     "@stackblitz/sdk": "^1.11.0",
