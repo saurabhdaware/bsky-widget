@@ -11,7 +11,7 @@
     "build": "pnpm build:lib && pnpm build:playground",
     "build:lib": "LIB=true vite build",
     "build:playground": "vite build",
-    "preview": "http-server ./ -p 8080",
+    "preview": "pnpm build:lib && http-server ./ -p 8080",
     "test": "vitest",
     "test:once": "vitest run once",
     "test:e2e": "playwright test ",

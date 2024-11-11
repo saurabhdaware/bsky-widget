@@ -13,6 +13,8 @@ test.describe.parallel("bsky-widget - Image Snapshot Test", () => {
   }) => {
     await page.goto("/test.html"); // Update with your test page path
 
+    await expect(page).toHaveTitle("E2E Test Page");
+
     // Locate the bsky-widget component
     const widgetElement = page.locator('bsky-widget[data-rendered="true"]');
     const followers = widgetElement.locator(".followers");
