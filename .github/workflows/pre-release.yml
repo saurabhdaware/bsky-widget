@@ -1,5 +1,5 @@
 name: Publish Experimental Release
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -21,4 +21,4 @@ jobs:
       - name: Build
         run: pnpm build:lib
 
-      - run: pnpx pkg-pr-new publish
+      - run: pnpx pkg-pr-new publish '.' --template './__tests__/examples/*'
