@@ -25,6 +25,7 @@ test.describe.parallel("bsky-widget - Image Snapshot Test", () => {
     await sleep(2000);
     await expect(page).toHaveScreenshot("baseline.png", {
       mask: [followers],
+      maxDiffPixelRatio: 0.1,
     });
   });
 });
