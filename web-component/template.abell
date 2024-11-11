@@ -26,7 +26,7 @@
   {{ 
     props.description ? /* html */`
       <div class="profile-description-container padded">
-        <p>${ formatParagraph(props.description) }</p>
+        <p>${formatParagraph(props.description)}</p>
       </div>
     ` : null 
   }}
