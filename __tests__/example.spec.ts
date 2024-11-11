@@ -1,23 +1,28 @@
-import { test, expect } from "@playwright/test";
+// test.spec.ts
+import { test, expect, Page } from "@playwright/test";
 
-test("has title", async ({ page }) => {
-  await page.goto("/test.html", {
-    waitUntil: "load",
-    timeout: 0,
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+test.describe.parallel("bsky-widget - Image Snapshot Test", () => {
+  test("should render the bsky-widget component", async ({
+    page,
+  }: {
+    page: Page;
+  }) => {
+    await page.goto("/test.html"); // Update with your test page path
+
+    // Locate the bsky-widget component
+    const widgetElement = page.locator('bsky-widget[data-rendered="true"]');
+    const followers = widgetElement.locator(".followers");
+
+    // Check if the widget is visible
+    await expect(widgetElement).toBeVisible();
+
+    await sleep(2000);
+    await expect(page).toHaveScreenshot("baseline.png", {
+      mask: [followers],
+    });
   });
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/E2E Test Page/);
 });
-
-// test("get started link", async ({ page }) => {
-//   await page.goto("https://playwright.dev/");
-
-//   // Click the get started link.
-//   await page.getByRole("link", { name: "Get started" }).click();
-
-//   // Expects page to have a heading with the name of Installation.
-//   await expect(
-//     page.getByRole("heading", { name: "Installation" })
-//   ).toBeVisible();
-// });
