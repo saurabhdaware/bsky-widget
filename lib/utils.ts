@@ -1,5 +1,5 @@
 // Thanks chatgpt
-export function formatParagraph(text) {
+export const formatParagraph = (text: string): string => {
   // Regular expression to match URLs (http, https, www, or just a domain)
   const urlPattern =
     /\b((?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[a-zA-Z0-9._~:/?#\[\]@!$&'()*+,;=%-]*)?)|@[a-zA-Z0-9._]+/gi;
@@ -27,10 +27,14 @@ export function formatParagraph(text) {
   formattedText = formattedText.replace(/\n/g, "<br />");
 
   return formattedText;
-}
+};
 
-export function sanitizeInput(input) {
+export const sanitizeInput = (input: string | undefined) => {
+  if (!input) {
+    return input;
+  }
+
   const element = document.createElement("div");
   element.textContent = input;
   return element.innerHTML;
-}
+};
