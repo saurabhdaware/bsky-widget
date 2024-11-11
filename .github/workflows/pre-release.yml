@@ -21,4 +21,4 @@ jobs:
       - name: Build
         run: pnpm build:lib
 
-      - run: pnpx pkg-pr-new publish
+      - run: pnpx pkg-pr-new publish '.' --template './__tests__/examples/*'
