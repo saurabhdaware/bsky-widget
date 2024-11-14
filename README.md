@@ -36,7 +36,7 @@ Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
 
 </td>
 
-<td>
+<td width="300px">
 <img alt="Patak's Bluesky Profile Widget" src="/.github/repo-assets/card-preview.png" width="300px" />
 </td>
 
@@ -66,6 +66,11 @@ import "bsky-widget";
 | data-handle           | handle of your bluesky account                                 | "saurabhd.bsky.social"      |
 | data-show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
 | data-show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
+
+
+## CONTRIBUTING
+
+The project is open for contributions, you can check [CONTRIBUTING.md](./CONTRIBUTING.md) for more information on local setup and commands.
 
 ---
 
