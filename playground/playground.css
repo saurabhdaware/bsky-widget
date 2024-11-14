@@ -85,49 +85,6 @@ a:not(.button) {
   justify-content: center;
 }
 
-@media (max-width: 1230px) {
-  .page-container,
-  .preview-code {
-    height: unset;
-  }
-
-  .preview-code {
-    flex-direction: column;
-  }
-
-  .code-output {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    box-shadow: none;
-    width: 100%;
-    position: relative;
-    background-color: transparent;
-    height: unset;
-  }
-
-  .code-section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .preview-code-container {
-    margin-left: 0px;
-  }
-  .preview-code {
-    padding: 42px 12px;
-  }
-
-  .docs-container {
-    padding: 24px 12px;
-  }
-}
-
 .form-container {
   text-align: left;
   display: flex;
@@ -315,6 +272,52 @@ footer {
     transform: rotate(10deg);
   }
 }
+
+
+@media (max-width: 1280px) {
+  .page-container,
+  .preview-code {
+    height: unset;
+  }
+
+  .preview-code {
+    flex-direction: column;
+  }
+
+  .code-output {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    box-shadow: none;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    height: unset;
+  }
+
+  .code-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .preview-code-container {
+    margin-left: 0px;
+  }
+  .preview-code {
+    padding: 42px 12px;
+  }
+
+  .docs-container {
+    padding: 24px 12px;
+  }
+}
+
+
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     animation: none;
