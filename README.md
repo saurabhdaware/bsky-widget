@@ -1,4 +1,4 @@
-# Bluesky Profile Widget
+# Bluesky Widget
 
 Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
 
@@ -13,7 +13,7 @@ Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
 </tr>
   
 <tr>
-<td width="50%">
+<td>
 
 ```html
 <!-- Paste in your CSS to avoid layout shift -->
@@ -36,7 +36,7 @@ Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
 
 </td>
 
-<td width="300px">
+<td>
 <img alt="Patak's Bluesky Profile Widget" src="/.github/repo-assets/card-preview.png" width="300px" />
 </td>
 
