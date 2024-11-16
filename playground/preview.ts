@@ -8,9 +8,10 @@ type WidgetPropsType = {
   handle: string;
   showDescription: boolean;
   showBanner: boolean;
+  theme: string;
 };
 
-const getCode = ({ handle, showDescription, showBanner }: WidgetPropsType) => {
+const getCode = ({ handle, showDescription, showBanner, theme }: WidgetPropsType) => {
   let additionalProps = "";
   if (showDescription === false) {
     additionalProps += `\n  data-show-description="${showDescription}"`;
@@ -18,6 +19,10 @@ const getCode = ({ handle, showDescription, showBanner }: WidgetPropsType) => {
 
   if (showBanner === false) {
     additionalProps += `\n  data-show-banner="${showBanner}"`;
+  }
+
+  if (theme !== 'light') {
+    additionalProps += `\n  theme="${theme}"`;
   }
 
   return dedent(`
@@ -47,6 +52,7 @@ export const setPreview = ({
   handle,
   showDescription,
   showBanner,
+  theme
 }: WidgetPropsType) => {
   // RLO character ends up in input when you copy-paste from bluesky. This should remove it
   const handleValue = handle.replace(/[\u202A-\u202E]/g, "").trim();
@@ -54,8 +60,9 @@ export const setPreview = ({
   widget.setAttribute("data-handle", handleValue);
   widget.setAttribute("data-show-banner", String(showBanner));
   widget.setAttribute("data-show-description", String(showDescription));
+  widget.setAttribute("theme", theme);
 
-  code.innerHTML = getCode({ handle, showBanner, showDescription });
+  code.innerHTML = getCode({ handle, showBanner, showDescription, theme });
   highlightBlock(code);
 
   // Check the bounds of rendered card to add better min-height value

@@ -64,7 +64,7 @@ class ProfileCard extends HTMLElement {
   }
 
   static get observedAttributes(): string[] {
-    return ["data-handle", "data-show-description", "data-show-banner"];
+    return ["data-handle", "data-show-description", "data-show-banner", "theme"];
   }
 
   attributeChangedCallback(
@@ -78,7 +78,6 @@ class ProfileCard extends HTMLElement {
       ) &&
       oldValue !== newValue
     ) {
-      this.setCardDefaultBounds();
       this.connectedCallback();
     }
   }

@@ -29,6 +29,15 @@ export const formatParagraph = (text: string): string => {
   return formattedText;
 };
 
+export const formatFollowCount = (num: number): string => {
+  const formatter = new Intl.NumberFormat('en', {
+    notation: "compact", // Enables compact formatting
+    compactDisplay: "short", // Use short format (e.g., 1.5K)
+    maximumFractionDigits: 1, // Control decimal places
+  });
+  return formatter.format(num);
+}
+
 export const sanitizeInput = (input: string | undefined) => {
   if (!input) {
     return input;

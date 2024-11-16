@@ -1,6 +1,3 @@
-@import "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" screen;
-@import "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" screen and (prefers-color-scheme: dark);
-
 * {
   box-sizing: border-box;
 }
@@ -91,7 +88,7 @@ a:not(.button) {
 .form-container {
   text-align: left;
   display: flex;
-  gap: 32px;
+  gap: 28px;
   flex-direction: column;
 }
 
@@ -109,7 +106,7 @@ a:not(.button) {
   margin-bottom: 0.5rem;
 }
 
-.input-container input {
+.input-container input, .input-container select {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #ddd;
@@ -119,7 +116,20 @@ a:not(.button) {
   font-size: 1.2rem;
 }
 
-.input-container input::placeholder {
+
+.input-container select {
+  padding: 8px 0px;
+  border: none;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+}
+
+.input-container .select-container {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.input-container input::placeholder, .input-container select::placeholder {
   color: #aaa;
 }
 
@@ -327,105 +337,5 @@ footer {
   }
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --dark: #161C23;
-    --light: #E0E2E6;
-    --mid: #aaa;
-  }
-
-  html {
-    background: var(--dark);
-  }
-
-  svg.octo {
-    fill: #fff !important;
-    color:#151513 !important;
-  }
-
-  a:not(.button) {
-    color: var(--light);
-    border-bottom: 2px solid var(--light);
-  }
-
-  .sidebar {
-    color: var(--light);
-  }
-
-  .preview-code-container {
-    background: var(--dark);
-    color: var(--light);
-  }
-  
-  .sb-embed {
-    border: 1px solid var(--dark);
-  }
-  
-  .sidebar {
-    background-color: var(--dark);
-    box-shadow: 1px 1px 12px 4px #000;
-  }
-
-  .input-container label {
-    color: var(--mid);
-  }
-  
-  .input-container input {
-    border: 1px solid var(--mid);
-    background-color: var(--light);
-  }
-  
-  .input-container input::placeholder {
-    color: var(--mid);
-  }
-  
-  .input-container input:focus {
-    border-color: var(--mid);
-  }
-  
-  .button {
-    color: var(--dark);
-    background-color: var(--light);
-  }
-  
-  .button:hover {
-    background-color: var(--mid);
-  }
-  
-  .code-output {
-    background-color: #0F1217;
-    border: 1px solid #000;
-  }
-  
-  .copy-button {
-    background-color: var(--light);
-    border: 1px solid var(--light);
-    color: var(--dark);
-  }
-
-  .slider {
-    background-color: var(--mid);
-  }
-
-  .slider:before {
-    background-color: var(--dark);
-  }
-
-  input:checked + .slider {
-    background-color: var(--light);
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px var(--light);
-  }
-}
-
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-  .sidebar {
-    box-shadow: none;
-    background-color: transparent;
   }
 }
