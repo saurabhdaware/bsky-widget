@@ -1,6 +1,8 @@
-# Bluesky Profile Widget
+# Bluesky Widget
 
-Unofficial Bluesky Profile Cards for Bluesky Gang 🦋
+Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
+
+**Card Generator UI: https://bsky-widget.saurabhdaware.in/**
 
 ## Usage
 
@@ -11,7 +13,7 @@ Unofficial Bluesky Profile Cards for Bluesky Gang 🦋
 </tr>
   
 <tr>
-<td width="50%">
+<td>
 
 ```html
 <!-- Paste in your CSS to avoid layout shift -->
@@ -64,6 +66,11 @@ import "bsky-widget";
 | data-handle           | handle of your bluesky account                                 | "saurabhd.bsky.social"      |
 | data-show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
 | data-show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
+
+
+## CONTRIBUTING
+
+The project is open for contributions, you can check [CONTRIBUTING.md](./CONTRIBUTING.md) for more information on local setup and commands.
 
 ---
 

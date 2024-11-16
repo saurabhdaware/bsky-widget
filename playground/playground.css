@@ -13,6 +13,7 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
+  line-height: 1.8rem;
   overflow: auto;
 }
 
@@ -53,6 +54,7 @@ a:not(.button) {
 }
 
 .preview-code-container {
+  padding-top: 30px;
   margin-left: 400px;
 }
 .preview-code {
@@ -84,49 +86,6 @@ a:not(.button) {
   gap: 12px;
   align-items: center;
   justify-content: center;
-}
-
-@media (max-width: 1230px) {
-  .page-container,
-  .preview-code {
-    height: unset;
-  }
-
-  .preview-code {
-    flex-direction: column;
-  }
-
-  .code-output {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    box-shadow: none;
-    width: 100%;
-    position: relative;
-    background-color: transparent;
-    height: unset;
-  }
-
-  .code-section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .preview-code-container {
-    margin-left: 0px;
-  }
-  .preview-code {
-    padding: 42px 12px;
-  }
-
-  .docs-container {
-    padding: 24px 12px;
-  }
 }
 
 .form-container {
@@ -286,6 +245,11 @@ input:checked + .slider:before {
 
 footer {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
 }
 
 .github-corner {
@@ -311,6 +275,52 @@ footer {
     transform: rotate(10deg);
   }
 }
+
+
+@media (max-width: 1280px) {
+  .page-container,
+  .preview-code {
+    height: unset;
+  }
+
+  .preview-code {
+    flex-direction: column;
+  }
+
+  .code-output {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    box-shadow: none;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    height: unset;
+  }
+
+  .code-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .preview-code-container {
+    margin-left: 0px;
+  }
+  .preview-code {
+    padding: 42px 12px;
+  }
+
+  .docs-container {
+    padding: 24px 12px;
+  }
+}
+
+
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     animation: none;

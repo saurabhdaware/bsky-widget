@@ -1,6 +1,5 @@
 {{
   import { formatParagraph } from './utils';
-  import logo from './bluesky-logo.svg';
 }}
 <div class="card-content-container {{ props.banner ? 'has-banner' : 'no-banner' }}">
   {{ props.banner ? /* html */ `<div class="banner" style="background-image: url('${ props.banner }');"></div>` : null }}
@@ -8,7 +7,7 @@
     <div class="avatar-follow-container-placeholder"></div>
     <div class="avatar-follow-container padded">
       <div style="height: 80px">
-        <img class="avatar"  src="{{ props.avatar }}" width="80px" height="80px" />
+        <img class="avatar" alt="{{ props.displayName }}'s Profile Picture"  src="{{ props.avatar }}" width="80px" height="80px" />
       </div>
       <a class="bsky-button follow-button" href="https://bsky.app/profile/{{ props.handle }}" target="_blank">
         <svg fill="none" width="16" viewBox="0 0 24 24" height="16" style="color: rgb(241, 243, 245); pointer-events: none;"><path fill="hsl(211, 20%, 95.3%)" fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 1 1 1v7h7a1 1 0 1 1 0 2h-7v7a1 1 0 1 1-2 0v-7H4a1 1 0 1 1 0-2h7V4a1 1 0 0 1 1-1Z"></path></svg>
@@ -16,7 +15,7 @@
       </a>
     </div>
     <div class="name-handle-container padded">
-      <h3>{{ props.displayName }}</h3>
+      <h2>{{ props.displayName }}</h2>
       <p class="handle">@{{ props.handle }}</p>
       <div class="followers">
         <p><span class="count">{{ props.followersCount }}</span> Followers</p>
@@ -27,12 +26,22 @@
   {{ 
     props.description ? /* html */`
       <div class="profile-description-container padded">
-        <p>${ formatParagraph(props.description) }</p>
+        <p>${formatParagraph(props.description)}</p>
       </div>
     ` : null 
   }}
   
-  <a class="logo-anchor" href="https://bsky.app/" target="_blank">
-    <img src="{{ logo }}" width="32px" alt="Bluesky Logo"  />
+  <a 
+    class="logo-anchor bluesky-flutter" 
+    href="https://bsky.app/profile/{{props.handle}}" 
+    target="_blank" rel="noreferrer noopener" 
+    aria-label="View {{props.handle}}'s bluesky profile">
+    <svg id="flutterby" class="bluesky-flutter" viewBox="0 0 566 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="wing" fill="currentColor" d="M 123.244 35.008 C 188.248 83.809 283.836 176.879 283.836 235.857 C 283.836 316.899 283.879 235.845 283.836 376.038 C 283.889 375.995 282.67 376.544 280.212 383.758 C 266.806 423.111 214.487 576.685 94.841 453.913 C 31.843 389.269 61.013 324.625 175.682 305.108 C 110.08 316.274 36.332 297.827 16.093 225.504 C 10.271 204.699 0.343 76.56 0.343 59.246 C 0.343 -27.451 76.342 -0.206 123.244 35.008 Z" />
+      </defs>
+      <use xlink:href="#wing" class="left" />
+      <use xlink:href="#wing" class="right" />
+    </svg>
   </a>
 </div>

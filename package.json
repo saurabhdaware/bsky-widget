@@ -1,6 +1,6 @@
 {
   "name": "bsky-widget",
-  "version": "0.0.10",
+  "version": "0.0.20",
   "description": "Profile Card / Widget for Bluesky",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -8,10 +8,12 @@
   "homepage": "https://bsky-widget.saurabhdaware.in/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build:lib && vite build:playground",
+    "build": "pnpm build:lib && pnpm build:playground",
     "build:lib": "LIB=true vite build",
     "build:playground": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "preview": "pnpm build:lib && http-server ./ -p 8080",
+    "test": "pnpm test:e2e",
+    "test:e2e": "playwright test ",
     "prepublishOnly": "pnpm build:lib"
   },
   "files": [
@@ -20,10 +22,15 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "packageManager": "pnpm@9.0.6",
   "devDependencies": {
+    "@playwright/test": "^1.48.2",
     "@stackblitz/sdk": "^1.11.0",
+    "@types/node": "^22.9.0",
     "abell": "1.0.0-beta.5",
     "highlight.js": "^11.10.0",
+    "http-server": "^14.1.1",
+    "playwright": "^1.48.2",
     "vite": "^5.4.10"
   }
 }

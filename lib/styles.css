@@ -3,9 +3,10 @@
   box-sizing: border-box;
 }
 
-h3 {
+h2 {
   margin: 0px;
   font-size: var(--bsky-text-title);
+  line-height: var(--bsky-text-title-line-height);
 }
 
 p {
@@ -26,6 +27,7 @@ a:hover {
   position: relative;
   font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
   width: 100%;
+  text-align: left;
 }
 
 .card-content-container {
@@ -44,6 +46,7 @@ a:hover {
   --bsky-interactive-hover: #4ca2fe;
   --bsky-text-on-theme: #fff;
   --bsky-text-title: 1.4rem;
+  --bsky-text-title-line-height: 1.8rem;
   --bsky-text-medium: 1rem;
   --bsky-text-small: 0.9rem;
 }
@@ -133,7 +136,7 @@ a:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .followers {
@@ -178,5 +181,69 @@ a:hover {
   
   .avatar {
     border: 2px solid var(--bsky-dark);
+  }
+}
+.bluesky-flutter {
+  display: inline-flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.bluesky-flutter svg {
+  width: 2em;
+  height: 2em;
+  transition: 200ms;
+}
+
+.bluesky-flutter .left {
+  transform-origin: center;
+}
+.bluesky-flutter .right {
+  transform-origin: center;
+  transform: scale(-1, 1);
+}
+.bluesky-flutter:hover .left,
+.bluesky-flutter:focus .left {
+  animation: flutter 430ms ease-in-out;
+  --flip: 1;
+}
+.bluesky-flutter:hover .right,
+.bluesky-flutter:focus .right {
+  animation: flutter 500ms ease-in-out;
+  --flip: -1;
+}
+.bluesky-flutter:hover svg,
+.bluesky-flutter:focus svg {
+  transform: rotate(-5deg);
+  transition: 500ms;
+}
+
+@media (prefers-reduced-motion) {
+  .bluesky-flutter:hover .left,
+  .bluesky-flutter:focus .left,
+  .bluesky-flutter:hover .right,
+  .bluesky-flutter:focus .right {
+    animation: none;
+  }
+}
+
+@keyframes flutter {
+  10% {
+    transform: scale(calc(var(--flip) * 1), 0.9);
+  }
+  20% {
+    transform: scale(calc(var(--flip) * 0.5), 1);
+  }
+  40% {
+    transform: scale(calc(var(--flip) * 0.9), 0.95);
+  }
+  60% {
+    transform: scale(calc(var(--flip) * 0.3), 1);
+  }
+  80% {
+    transform: scale(calc(var(--flip) * 0.9), 0.95);
+  }
+  100% {
+    transform: scale(calc(var(--flip) * 1), 1);
   }
 }
