@@ -167,6 +167,22 @@ a:hover {
   right: 14px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .widget-container {
+    --bsky-text-on-theme: #E0E2E6;
+    --bsky-dark: #161C23;
+    color: var(--bsky-text-on-theme);
+  }
+  
+  .card-content-container {
+    background-color: var(--bsky-dark);
+    box-shadow: 1px 1px 8px 1px #000;
+  }
+  
+  .avatar {
+    border: 2px solid var(--bsky-dark);
+  }
+}
 .bluesky-flutter {
   display: inline-flex;
   gap: 0.5em;
