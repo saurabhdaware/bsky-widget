@@ -10,10 +10,28 @@
   --bsky-text-on-primary: #fff;
   --bsky-text-on-background: #0b0f14;
   --bsky-text-on-background-dim: #42576c;
-  --bsky-text-title: 1.4rem;
-  --bsky-text-title-line-height: 1.8rem;
+  --bsky-text-large: 1.4rem;
+  --bsky-text-large-line-height: 1.8rem;
   --bsky-text-medium: 1rem;
   --bsky-text-small: 0.9rem;
+
+  /* Styles that can be overriden outside */
+  font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
+  width: 350px;
+  max-width: 100%;
+  min-height: 170px;
+  display: inline-block;
+
+  box-shadow: 1px 1px 8px 1px #0002;
+  border-radius: 8px;
+  overflow: auto;
+  opacity: 0;
+}
+
+/* The styles that are visible are only added when the card loads to avoid awkward states of box-shadow showing up without the content */
+:host(.show) {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 
@@ -45,8 +63,8 @@
 
 h2 {
   margin: 0px;
-  font-size: var(--bsky-text-title);
-  line-height: var(--bsky-text-title-line-height);
+  font-size: var(--bsky-text-large);
+  line-height: var(--bsky-text-large-line-height);
 }
 
 p {
@@ -65,41 +83,30 @@ a:hover {
 .widget-container {
   height: 100%;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
   width: 100%;
   text-align: left;
+  min-height: inherit;
 }
 
 .card-content-container {
-  background-color: var(--bsky-background);
-  font-size: var(--bsky-text-medium);
-  color: var(--bsky-text-on-background);
   position: relative;
   line-height: 1.3rem;
   padding-bottom: 24px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 8px;
-  overflow: auto;
-  box-shadow: 1px 1px 8px 1px #0002;
   height: 100%;
+  background-color: var(--bsky-background);
+  font-size: var(--bsky-text-medium);
+  color: var(--bsky-text-on-background);
 }
 
-.card-content-container.show {
-  opacity: 1;
-}
-
-.loading-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
+.error-content-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background-color: var(--bsky-background);
+  font-size: var(--bsky-text-medium);
+  color: var(--bsky-text-on-background);
+  min-height: inherit;
 }
 
 .avatar-follow-container {

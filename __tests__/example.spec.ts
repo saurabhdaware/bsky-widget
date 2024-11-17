@@ -16,7 +16,7 @@ test.describe.parallel("bsky-widget - Image Snapshot Test", () => {
     await expect(page).toHaveTitle("E2E Test Page");
 
     // Locate the bsky-widget component
-    const widgetElement = page.locator('bsky-widget[data-rendered="true"]');
+    const widgetElement = page.locator('.widgets-container');
     const followers = widgetElement.locator(".followers");
 
     // Check if the widget is visible
@@ -26,6 +26,7 @@ test.describe.parallel("bsky-widget - Image Snapshot Test", () => {
     await expect(page).toHaveScreenshot("baseline.png", {
       mask: [followers],
       maxDiffPixelRatio: 0.1,
+      fullPage: true,
     });
   });
 });

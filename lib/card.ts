@@ -2,7 +2,6 @@ import cardStyles from "./styles.css?inline";
 import cardTemplate from "./template.abell";
 import { sanitizeInput as s } from "./utils";
 
-const stylesNotDefinedValues = ["0px", "none"];
 
 type Profile = {
   displayName: string;
@@ -51,8 +50,9 @@ class ProfileCard extends HTMLElement {
       return;
     }
 
+    this.setAttribute("data-rendered", "false");
+
     try {
-      this.setCardDefaultBounds();
       const response = await fetchProfile(this.dataset.handle);
       if (response.error) {
         throw new Error(response.message);
@@ -82,27 +82,6 @@ class ProfileCard extends HTMLElement {
     }
   }
 
-  setStyleIfNotDefined(prop: string, value: string): void {
-    const computedValue = getComputedStyle(this)[prop as any];
-    if (
-      !this.style[prop as any] &&
-      stylesNotDefinedValues.includes(computedValue)
-    ) {
-      this.style[prop as any] = value;
-    }
-  }
-
-  setCardDefaultBounds(): void {
-    this.setStyleIfNotDefined("width", "350px");
-    this.setStyleIfNotDefined("maxWidth", "100%");
-    this.setStyleIfNotDefined("minHeight", "170px");
-    this.style.display = "inline-block";
-  }
-
-  setHeight(value: string): void {
-    this.style.minHeight = value;
-  }
-
   render(profile: Profile): void {
     const container = this.shadowRoot!.querySelector(
       ".widget-container"
@@ -120,11 +99,7 @@ class ProfileCard extends HTMLElement {
       followsCount: s(profile.followsCount.toString()),
     });
 
-    const cardContentContainer = container.querySelector(
-      ".card-content-container"
-    ) as HTMLElement;
-    cardContentContainer.offsetHeight;
-    cardContentContainer.classList.add("show");
+    this.classList.add("show");
     this.setAttribute("data-rendered", "true");
   }
 
@@ -132,11 +107,13 @@ class ProfileCard extends HTMLElement {
     const container = this.shadowRoot!.querySelector(
       ".widget-container"
     ) as HTMLElement;
+    
     container.innerHTML = `
-      <div class="error">
-        ${error.message}
-      </div>
+    <div class="error-content-container">
+      <p>${error.message}</p>
+    </div>
     `;
+    this.classList.add("show");
   }
 }
 

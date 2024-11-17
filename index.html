@@ -63,19 +63,17 @@
               />
             </div>
 
-
             <div class="input-container">
               <label for="theme">Theme</label>
               <div class="select-container">
-                <select
-                  name="theme"
-                  id="theme"
-                >
+                <select name="theme" id="theme">
                   <option value="light" selected>light</option>
                   <option value="dark">dark</option>
                   <option value="dim">dim</option>
                   <option value="auto">auto</option>
-                  <option value="auto-dim">auto-dim (use dim in dark mode)</option>
+                  <option value="auto-dim">
+                    auto-dim (use dim in dark mode)
+                  </option>
                 </select>
               </div>
             </div>
@@ -106,9 +104,31 @@
                 </label>
               </div>
             </div>
-            <button class="button generate-button" type="submit">
-              Generate
-            </button>
+
+            <div class="submit-buttons-container">
+              <button class="button primary" type="submit">Generate</button>
+              <a
+                href="https://github.com/saurabhdaware/bsky-widget#readme"
+                target="_blank"
+                class="button secondary"
+              >
+                <img
+                  src="/gh-logo.svg"
+                  width="20px"
+                  height="20px"
+                  alt="GitHub logo"
+                />
+                <span style="display: flex; align-items: center; gap: 4px"
+                  >Documentation
+                  <img
+                    src="/icon-external-link.svg"
+                    width="18px"
+                    height="18px"
+                    alt="External Link Icon"
+                  />
+                </span>
+              </a>
+            </div>
           </form>
         </section>
       </div>
@@ -130,16 +150,35 @@
         </section>
 
         <section class="docs-container share-container">
-          <div style="text-align: right">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              gap: 8px;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              id="bsky-sponsors-button"
+              class="inline-width button secondary"
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://github.com/sponsors/saurabhdaware"
+            >
+              <img width="20px" src="/gh-logo.svg" alt="Github Logo" />
+              <span>Sponsor</span>
+            </a>
+
             <a
               id="bsky-share-button"
-              class="bsky-share-button button"
+              class="inline-width button secondary"
               target="_blank"
               rel="noreferrer noopener"
               href="https://bsky.app/intent/compose?text=Check out the Bluesky Widget Card at https://bsky-widget.saurabhdaware.in/"
             >
               <img width="20px" src="/bluesky-logo.svg" alt="Bluesky Logo" />
-              <span>Share with Bluesky Frens 🤗</span>
+              <span>Share your card</span>
             </a>
           </div>
         </section>

@@ -10,7 +10,7 @@
         <img class="avatar" alt="{{ props.displayName }}'s Profile Picture"  src="{{ props.avatar }}" width="80px" height="80px" />
       </div>
       <a class="bsky-button follow-button" href="https://bsky.app/profile/{{ props.handle }}" target="_blank">
-        <svg fill="none" width="16" viewBox="0 0 24 24" height="16" style="color: rgb(241, 243, 245); pointer-events: none;"><path fill="hsl(211, 20%, 95.3%)" fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 1 1 1v7h7a1 1 0 1 1 0 2h-7v7a1 1 0 1 1-2 0v-7H4a1 1 0 1 1 0-2h7V4a1 1 0 0 1 1-1Z"></path></svg>
+        <svg fill="none" width="16" viewBox="0 0 24 24" height="16"><path fill="hsl(211, 20%, 95.3%)" fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 1 1 1v7h7a1 1 0 1 1 0 2h-7v7a1 1 0 1 1-2 0v-7H4a1 1 0 1 1 0-2h7V4a1 1 0 0 1 1-1Z"></path></svg>
         <span class="text">Follow</span>
       </a>
     </div>
@@ -30,7 +30,6 @@
       </div>
     ` : null 
   }}
-  
   <a 
     class="logo-anchor bluesky-flutter" 
     href="https://bsky.app/profile/{{props.handle}}" 
