@@ -64,7 +64,7 @@ class ProfileCard extends HTMLElement {
   }
 
   static get observedAttributes(): string[] {
-    return ["data-handle", "data-show-description", "data-show-banner", "theme"];
+    return ["data-handle", "data-show-description", "data-show-banner"];
   }
 
   attributeChangedCallback(
