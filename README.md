@@ -68,6 +68,29 @@ import "bsky-widget";
 | show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
 | theme            | theme of the card (`dark`, `dim`, `auto`, `auto-dim`, `light`) | "light"                     |
 
+## Migration from v0.0 -> v0.1
+
+<details>
+
+<summary>You are using v0.0 already? no worries! It's a no breaking change release. Click to see how you can migrate to new version and enjoy new features</summary>
+
+> [!NOTE]
+>
+> There's no breaking changes between v0.0 --> v0.1 apart from minor UI tweaks and some nice feature additions
+>
+> You can safely update the version in your script src as below or `npm install --save bsky-widget@latest` if you're using it as NPM package
+
+Check out the release notes at [v0.1 Release Notes](https://github.com/saurabhdaware/bsky-widget/releases/tag/v0.1.0)
+
+```diff
+  <script
+-   src="https://unpkg.com/bsky-widget@~0.0/dist/index.js"
++   src="https://unpkg.com/bsky-widget@~0.1/dist/index.js"
+    type="module"
+  ></script>
+```
+
+</details>
 
 ## CONTRIBUTING
 
