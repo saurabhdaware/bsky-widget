@@ -66,6 +66,7 @@ import "bsky-widget";
 | data-handle           | handle of your bluesky account                                 | "saurabhd.bsky.social"      |
 | data-show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
 | data-show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
+| theme                 | theme of the card (`dark`, `dim`, `auto`, `auto-dim`, `light`) | "light"                     |
 
 
 ## CONTRIBUTING
