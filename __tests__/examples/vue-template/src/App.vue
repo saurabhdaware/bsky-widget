@@ -3,7 +3,7 @@ import "bsky-widget";
 </script>
 
 <template>
-  <bsky-widget data-handle="vuejs.org"></bsky-widget>
+  <bsky-widget handle="vuejs.org"></bsky-widget>
 </template>
 
 <style scoped>

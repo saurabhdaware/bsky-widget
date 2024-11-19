@@ -2,7 +2,6 @@ import cardStyles from "./styles.css?inline";
 import cardTemplate from "./template.abell";
 import { sanitizeInput as s } from "./utils";
 
-
 type Profile = {
   displayName: string;
   handle: string;
@@ -33,10 +32,16 @@ const fetchProfile = async (handle: string): Promise<ProfileResponse> => {
 };
 
 class ProfileCard extends HTMLElement {
+  props: {
+    handle?: string;
+    showDescription?: string;
+    showBanner?: string;
+  } = {};
+
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-
+    this.props = {};
     this.shadowRoot!.innerHTML = `
       <style>
       ${cardStyles}
@@ -46,14 +51,21 @@ class ProfileCard extends HTMLElement {
   }
 
   async connectedCallback(): Promise<void> {
-    if (!this.dataset.handle) {
+    this.props = {
+      handle: this.getAttribute("handle") ?? this.dataset.handle,
+      showDescription:
+        this.getAttribute("show-description") ?? this.dataset.showDescription,
+      showBanner: this.getAttribute("show-banner") ?? this.dataset.showBanner,
+    };
+
+    if (!this.props.handle) {
       return;
     }
 
     this.setAttribute("data-rendered", "false");
 
     try {
-      const response = await fetchProfile(this.dataset.handle);
+      const response = await fetchProfile(this.props.handle);
       if (response.error) {
         throw new Error(response.message);
       }
@@ -64,7 +76,14 @@ class ProfileCard extends HTMLElement {
   }
 
   static get observedAttributes(): string[] {
-    return ["data-handle", "data-show-description", "data-show-banner"];
+    return [
+      "data-handle",
+      "data-show-description",
+      "data-show-banner",
+      "handle",
+      "show-description",
+      "show-banner",
+    ];
   }
 
   attributeChangedCallback(
@@ -73,9 +92,14 @@ class ProfileCard extends HTMLElement {
     newValue: string
   ): void {
     if (
-      ["data-handle", "data-show-description", "data-show-banner"].includes(
-        attr
-      ) &&
+      [
+        "data-handle",
+        "data-show-description",
+        "data-show-banner",
+        "handle",
+        "show-description",
+        "show-banner",
+      ].includes(attr) &&
       oldValue !== newValue
     ) {
       this.connectedCallback();
@@ -86,8 +110,8 @@ class ProfileCard extends HTMLElement {
     const container = this.shadowRoot!.querySelector(
       ".widget-container"
     ) as HTMLElement;
-    const showBanner = this.dataset.showBanner !== "false";
-    const showDescription = this.dataset.showDescription !== "false";
+    const showBanner = this.props.showBanner !== "false";
+    const showDescription = this.props.showDescription !== "false";
 
     container.innerHTML = cardTemplate({
       displayName: s(profile.displayName),
@@ -107,7 +131,7 @@ class ProfileCard extends HTMLElement {
     const container = this.shadowRoot!.querySelector(
       ".widget-container"
     ) as HTMLElement;
-    
+
     container.innerHTML = `
     <div class="error-content-container">
       <p>${error.message}</p>

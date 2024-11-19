@@ -25,11 +25,11 @@ Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
 </style>
 
 <!-- Paste wherever you want to render the card -->
-<bsky-widget data-handle="patak.dev"></bsky-widget>
+<bsky-widget handle="patak.dev"></bsky-widget>
 
 <!-- Paste before end of body -->
 <script
-  src="https://unpkg.com/bsky-widget@~0.0/dist/index.js"
+  src="https://unpkg.com/bsky-widget@~0.1/dist/index.js"
   type="module"
 ></script>
 ```
@@ -56,17 +56,17 @@ npm install bsky-widget@latest --save
 ```jsx
 import "bsky-widget";
 
-<bsky-widget data-handle="srbh.dev"></bsky-widget>;
+<bsky-widget handle="srbh.dev"></bsky-widget>;
 ```
 
 ## Props
 
-| Prop                  | Description                                                    | Example value               |
-| :-------------------- | :------------------------------------------------------------- | :-------------------------- |
-| data-handle           | handle of your bluesky account                                 | "srbh.dev"      |
-| data-show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
-| data-show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
-| theme                 | theme of the card (`dark`, `dim`, `auto`, `auto-dim`, `light`) | "light"                     |
+| Prop             | Description                                                    | Example value               |
+| :--------------- | :------------------------------------------------------------- | :-------------------------- |
+| handle           | handle of your bluesky account                                 | "srbh.dev"                  |
+| show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
+| show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
+| theme            | theme of the card (`dark`, `dim`, `auto`, `auto-dim`, `light`) | "light"                     |
 
 
 ## CONTRIBUTING
