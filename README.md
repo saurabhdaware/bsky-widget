@@ -56,14 +56,14 @@ npm install bsky-widget@latest --save
 ```jsx
 import "bsky-widget";
 
-<bsky-widget data-handle="saurabhd.bsky.social"></bsky-widget>;
+<bsky-widget data-handle="srbh.dev"></bsky-widget>;
 ```
 
 ## Props
 
 | Prop                  | Description                                                    | Example value               |
 | :-------------------- | :------------------------------------------------------------- | :-------------------------- |
-| data-handle           | handle of your bluesky account                                 | "saurabhd.bsky.social"      |
+| data-handle           | handle of your bluesky account                                 | "srbh.dev"      |
 | data-show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
 | data-show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
 | theme                 | theme of the card (`dark`, `dim`, `auto`, `auto-dim`, `light`) | "light"                     |
