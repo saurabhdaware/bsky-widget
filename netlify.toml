@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://bsky-widget.saurabhdaware.in/*"
+  to = "https://bsky-widget.srbh.dev/:splat"
+  status = 301
+  force = true
