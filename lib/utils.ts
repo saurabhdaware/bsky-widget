@@ -4,10 +4,20 @@ export const formatParagraph = (text: string): string => {
     /\b((?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[a-zA-Z0-9._~:/?#\[\]@!$&'()*+,;=%-]*)?)|@[a-zA-Z0-9._]+/gi;
 
   // Replace URLs with anchor tags
-  let formattedText = text.replace(urlPattern, (url) => {
+  let formattedText = text.replace(urlPattern, (url, _a, _b, index) => {
+   
+
     if (url.startsWith("@")) {
       if (!url.includes(".")) {
         // Probably just random tag and not bsky profile
+        return url;
+      }
+
+      const charBeforeAt = index > 0 ? text.at(index - 1) : '';
+      // if character before `@` is not white space or next line, then its probably email id
+      const isEmail = charBeforeAt?.trim() !== '';
+
+      if (isEmail) {
         return url;
       }
 
