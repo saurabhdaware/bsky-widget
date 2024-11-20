@@ -25,11 +25,11 @@ Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
 </style>
 
 <!-- Paste wherever you want to render the card -->
-<bsky-widget data-handle="patak.dev"></bsky-widget>
+<bsky-widget handle="patak.dev"></bsky-widget>
 
 <!-- Paste before end of body -->
 <script
-  src="https://unpkg.com/bsky-widget@~0.0/dist/index.js"
+  src="https://unpkg.com/bsky-widget@~0.1/dist/index.js"
   type="module"
 ></script>
 ```
@@ -56,16 +56,53 @@ npm install bsky-widget@latest --save
 ```jsx
 import "bsky-widget";
 
-<bsky-widget data-handle="srbh.dev"></bsky-widget>;
+<bsky-widget handle="srbh.dev"></bsky-widget>;
 ```
 
 ## Props
 
-| Prop                  | Description                                                    | Example value               |
-| :-------------------- | :------------------------------------------------------------- | :-------------------------- |
-| data-handle           | handle of your bluesky account                                 | "srbh.dev"      |
-| data-show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
-| data-show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
+| Prop             | Description                                                    | Example value               |
+| :--------------- | :------------------------------------------------------------- | :-------------------------- |
+| handle           | handle of your bluesky account                                 | "srbh.dev"                  |
+| show-description | hide / show your description / bio from profile                | "true" (default) or "false" |
+| show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
+| theme            | theme of the card (`dark`, `dim`, `auto`, `auto-dim`, `light`) | "light"                     |
+
+
+## Override Styles
+
+You can go ahead and override any of these styles to customize your card further, create custom themes, or adjust the card in your website's layout
+
+```css
+bsky-widget {
+  --bsky-background: #fff;
+  --bsky-primary: #1185fe;
+  --bsky-primary-hover: #4ca2fe;
+  --bsky-text-on-primary: #fff;
+  --bsky-text-on-background: #0b0f14;
+  --bsky-text-on-background-subtle: #42576c;
+  --bsky-text-large: 1.4rem;
+  --bsky-text-large-line-height: 1.8rem;
+  --bsky-text-medium: 1rem;
+  --bsky-text-small: 0.9rem;
+
+  font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
+  width: 350px;
+  max-width: 100%;
+  min-height: 170px;
+  display: inline-block;
+  box-shadow: 1px 1px 8px 1px #0002;
+  border-radius: 8px;
+}
+```
+
+## Migration from v0.0 -> v0.1
+
+> [!Note]
+>
+> You are using v0.0 already? no worries! It's a no breaking change release. Click the link below to see how you can migrate to new version and enjoy new features 🚀
+
+Check out the release notes at [v0.1 Release Notes](https://github.com/saurabhdaware/bsky-widget/releases/tag/v0.1.0)
 
 
 ## CONTRIBUTING

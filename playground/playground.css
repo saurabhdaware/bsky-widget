@@ -88,7 +88,7 @@ a:not(.button) {
 .form-container {
   text-align: left;
   display: flex;
-  gap: 32px;
+  gap: 28px;
   flex-direction: column;
 }
 
@@ -106,7 +106,7 @@ a:not(.button) {
   margin-bottom: 0.5rem;
 }
 
-.input-container input {
+.input-container input, .input-container select {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #ddd;
@@ -116,7 +116,20 @@ a:not(.button) {
   font-size: 1.2rem;
 }
 
-.input-container input::placeholder {
+
+.input-container select {
+  padding: 8px 0px;
+  border: none;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+}
+
+.input-container .select-container {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.input-container input::placeholder, .input-container select::placeholder {
   color: #aaa;
 }
 
@@ -125,8 +138,14 @@ a:not(.button) {
   border-color: #6b7280;
 }
 
+.submit-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 .button {
-  padding: 12px;
+  padding: 4px 24px;
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
@@ -136,24 +155,32 @@ a:not(.button) {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-decoration: none;
+  text-align: center;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .button:hover {
   background-color: #333;
 }
 
-.generate-button {
-  display: block;
-  width: 100%;
+.button.secondary {
+  background-color: transparent;
+  border: 1px solid #0001;
+  color: #000;
 }
 
-.bsky-share-button {
+.button.secondary:hover {
+  background-color: #0001;
+}
+
+
+.inline-width {
   display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
   width: auto;
-  padding: 12px 24px;
 }
 
 .hljs {
@@ -185,6 +212,7 @@ pre {
   background-color: #000;
   border: 1px solid #000;
   color: #fff;
+  min-width: 80px;
 }
 
 .switch {

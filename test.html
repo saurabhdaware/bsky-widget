@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E2E Test Page</title>
+    <style>
+      bsky-widget.overriden-styles {
+        --bsky-background: #000;
+        --bsky-primary: #A157FE;
+        --bsky-primary-hover: #ae75f3;
+        --bsky-text-on-primary: #000;
+        --bsky-text-on-background: #ddd;
+        --bsky-text-on-background-subtle: #ddd;
+        --bsky-text-large: 1.5rem;
+        --bsky-text-large-line-height: 1.9rem;
+        --bsky-text-medium: 1.1rem;
+        --bsky-text-small: 1rem;
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E2E Test Page</title>
-</head>
+        /* Styles that can be overriden outside */
+        font-family: Helvetica, sans-serif, -apple-system, sans-serif;
+        width: 350px;
+        max-width: 100%;
+        min-height: 170px;
+        display: inline-block;
 
-<body>
-  <bsky-widget data-handle="abelljs.org"></bsky-widget>
-  <script type="module" src="./dist/index.js"></script>
-</body>
+        box-shadow: 1px 1px 8px 1px #A157FE;
+        border-radius: 16px;
+      }
+    </style>
 
+  </head>
+
+  <body>
+    <div class="widgets-container">
+      <bsky-widget data-handle="abelljs.org"></bsky-widget>
+      <bsky-widget handle="abelljs.org" theme="dark"></bsky-widget>
+      <bsky-widget data-handle="abelljs.org" theme="dim"></bsky-widget>
+      <bsky-widget
+        data-handle="abelljs.org"
+        show-description="false"
+      ></bsky-widget>
+      <bsky-widget
+        class="overriden-styles"
+        data-handle="abelljs.org"
+        data-show-description="false"
+        show-banner="false"
+      ></bsky-widget>
+    </div>
+    <script type="module" src="./dist/index.js"></script>
+  </body>
 </html>

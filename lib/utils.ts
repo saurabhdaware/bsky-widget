@@ -1,6 +1,5 @@
-// Thanks chatgpt
 export const formatParagraph = (text: string): string => {
-  // Regular expression to match URLs (http, https, www, or just a domain)
+  // Regular expression to match URLs (http, https, www, or just a domain), and @handles. Thanks chatgpt <3
   const urlPattern =
     /\b((?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[a-zA-Z0-9._~:/?#\[\]@!$&'()*+,;=%-]*)?)|@[a-zA-Z0-9._]+/gi;
 
@@ -28,6 +27,15 @@ export const formatParagraph = (text: string): string => {
 
   return formattedText;
 };
+
+export const formatFollowCount = (num: number): string => {
+  const formatter = new Intl.NumberFormat('en', {
+    notation: "compact",
+    compactDisplay: "short", 
+    maximumFractionDigits: 1,
+  });
+  return formatter.format(num);
+}
 
 export const sanitizeInput = (input: string | undefined) => {
   if (!input) {

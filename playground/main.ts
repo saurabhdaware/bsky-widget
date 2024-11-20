@@ -3,6 +3,7 @@ import { appendHandleParam, initStackblitzExamples } from "./utils";
 import { initHighlight } from "./highlightCode";
 
 const handle = document.querySelector<HTMLInputElement>("input#handle")!;
+const themeSelect = document.querySelector<HTMLSelectElement>('select#theme')!;
 const copyButton =
   document.querySelector<HTMLButtonElement>("button.copy-button")!;
 const showDescriptionEl = document.querySelector<HTMLInputElement>(
@@ -26,6 +27,7 @@ const setWidgetPreview = ({
     handle: handle.value,
     showDescription: showDescriptionEl.checked,
     showBanner: showBannerEl.checked,
+    theme: themeSelect.value
   });
 
   if (shouldAppendParam) {
@@ -40,7 +42,7 @@ document
     setWidgetPreview({ shouldAppendParam: true });
   });
 
-document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+document.querySelectorAll('input[type="checkbox"],select#theme').forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
     setWidgetPreview();
   });

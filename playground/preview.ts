@@ -8,16 +8,21 @@ type WidgetPropsType = {
   handle: string;
   showDescription: boolean;
   showBanner: boolean;
+  theme: string;
 };
 
-const getCode = ({ handle, showDescription, showBanner }: WidgetPropsType) => {
+const getCode = ({ handle, showDescription, showBanner, theme }: WidgetPropsType) => {
   let additionalProps = "";
   if (showDescription === false) {
-    additionalProps += `\n  data-show-description="${showDescription}"`;
+    additionalProps += `\n  show-description="${showDescription}"`;
   }
 
   if (showBanner === false) {
-    additionalProps += `\n  data-show-banner="${showBanner}"`;
+    additionalProps += `\n  show-banner="${showBanner}"`;
+  }
+
+  if (theme !== 'light') {
+    additionalProps += `\n  theme="${theme}"`;
   }
 
   return dedent(`
@@ -31,13 +36,13 @@ bsky-widget {
 
 &lt;!-- Paste wherever you want to render the card --&gt;
 &lt;bsky-widget 
-  data-handle="${handle}"${additionalProps}
+  handle="${handle}"${additionalProps}
 &gt;
 &lt;/bsky-widget&gt;
 
 &lt;!-- Paste before end of body --&gt;
 &lt;script 
-  src="https://unpkg.com/bsky-widget@~0.0/dist/index.js" 
+  src="https://unpkg.com/bsky-widget@~0.1/dist/index.js" 
   type="module"
 &gt;
 &lt;/script&gt;`);
@@ -47,15 +52,17 @@ export const setPreview = ({
   handle,
   showDescription,
   showBanner,
+  theme
 }: WidgetPropsType) => {
   // RLO character ends up in input when you copy-paste from bluesky. This should remove it
   const handleValue = handle.replace(/[\u202A-\u202E]/g, "").trim();
   setShare(handleValue);
-  widget.setAttribute("data-handle", handleValue);
-  widget.setAttribute("data-show-banner", String(showBanner));
-  widget.setAttribute("data-show-description", String(showDescription));
+  widget.setAttribute("handle", handleValue);
+  widget.setAttribute("show-banner", String(showBanner));
+  widget.setAttribute("show-description", String(showDescription));
+  widget.setAttribute("theme", theme);
 
-  code.innerHTML = getCode({ handle, showBanner, showDescription });
+  code.innerHTML = getCode({ handle, showBanner, showDescription, theme });
   highlightBlock(code);
 
   // Check the bounds of rendered card to add better min-height value

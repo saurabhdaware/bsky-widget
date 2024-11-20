@@ -3,10 +3,68 @@
   box-sizing: border-box;
 }
 
+:host {
+  --bsky-background: #fff;
+  --bsky-primary: #1185fe;
+  --bsky-primary-hover: #4ca2fe;
+  --bsky-text-on-primary: #fff;
+  --bsky-text-on-background: #0b0f14;
+  --bsky-text-on-background-subtle: #42576c;
+  --bsky-text-large: 1.4rem;
+  --bsky-text-large-line-height: 1.8rem;
+  --bsky-text-medium: 1rem;
+  --bsky-text-small: 0.9rem;
+
+  /* Styles that can be overriden outside */
+  font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
+  width: 350px;
+  max-width: 100%;
+  min-height: 170px;
+  display: inline-block;
+
+  box-shadow: 1px 1px 8px 1px #0002;
+  border-radius: 8px;
+  overflow: auto;
+  opacity: 0;
+}
+
+/* The styles that are visible are only added when the card loads to avoid awkward states of box-shadow showing up without the content */
+:host(.show) {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+:host([theme="dark"]) {
+  --bsky-background: #000000;
+  --bsky-text-on-background: #F1F3F5;
+  --bsky-text-on-background-subtle: #8c9eb2;
+}
+
+:host([theme="dim"]) {
+  --bsky-background: #171E27;
+  --bsky-text-on-background: #F1F3F5;
+  --bsky-text-on-background-subtle: #aebbc9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :host([theme="auto"]) {
+    --bsky-background: #000000;
+    --bsky-text-on-background: #F1F3F5;
+    --bsky-text-on-background-subtle: #8c9eb2;
+  }
+
+  :host([theme="auto-dim"]) {
+    --bsky-background: #171E27;
+    --bsky-text-on-background: #F1F3F5;
+    --bsky-text-on-background-subtle: #aebbc9;
+  }
+}
+
 h2 {
   margin: 0px;
-  font-size: var(--bsky-text-title);
-  line-height: var(--bsky-text-title-line-height);
+  font-size: var(--bsky-text-large);
+  line-height: var(--bsky-text-large-line-height);
 }
 
 p {
@@ -14,7 +72,7 @@ p {
 }
 
 a {
-  color: var(--bsky-interactive);
+  color: var(--bsky-primary);
   text-decoration: none;
 }
 
@@ -25,47 +83,30 @@ a:hover {
 .widget-container {
   height: 100%;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
   width: 100%;
   text-align: left;
+  min-height: inherit;
 }
 
 .card-content-container {
   position: relative;
-  font-size: var(--bsky-text-medium);
   line-height: 1.3rem;
   padding-bottom: 24px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 8px;
-  overflow: auto;
-  background-color: #fff;
-  box-shadow: 1px 1px 8px 1px #0002;
   height: 100%;
-  --bsky-interactive: #1185fe;
-  --bsky-interactive-hover: #4ca2fe;
-  --bsky-text-on-theme: #fff;
-  --bsky-text-title: 1.4rem;
-  --bsky-text-title-line-height: 1.8rem;
-  --bsky-text-medium: 1rem;
-  --bsky-text-small: 0.9rem;
+  background-color: var(--bsky-background);
+  font-size: var(--bsky-text-medium);
+  color: var(--bsky-text-on-background);
 }
 
-.card-content-container.show {
-  opacity: 1;
-}
-
-.loading-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
+.error-content-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background-color: var(--bsky-background);
+  font-size: var(--bsky-text-medium);
+  color: var(--bsky-text-on-background);
+  min-height: inherit;
 }
 
 .avatar-follow-container {
@@ -100,9 +141,9 @@ a:hover {
 }
 
 .bsky-button {
-  background-color: var(--bsky-interactive);
+  background-color: var(--bsky-primary);
   text-decoration: none !important;
-  color: var(--bsky-text-on-theme);
+  color: var(--bsky-text-on-primary);
   padding: 9px 16px;
   border-radius: 18px;
   font-weight: normal;
@@ -113,7 +154,7 @@ a:hover {
 }
 
 .bsky-button:hover {
-  background-color: var(--bsky-interactive-hover);
+  background-color: var(--bsky-primary-hover);
 }
 
 /* Actual Styling */
@@ -122,7 +163,7 @@ a:hover {
   aspect-ratio: 3 / 1;
   background-size: cover;
   position: relative;
-  background-color: var(--bsky-interactive);
+  background-color: var(--bsky-primary);
 }
 
 .profile-header-container {
@@ -139,6 +180,10 @@ a:hover {
   gap: 2px;
 }
 
+.subtle-text {
+  color: var(--bsky-text-on-background-subtle);
+}
+
 .followers {
   display: flex;
   gap: 8px;
@@ -151,7 +196,7 @@ a:hover {
 
 .avatar {
   border-radius: 100%;
-  border: 2px solid #fff;
+  border: 2px solid var(--bsky-background);
 }
 
 .profile-description-container {
