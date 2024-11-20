@@ -68,10 +68,35 @@ import "bsky-widget";
 | show-banner      | hide / show your banner (only applicable if you have a banner) | "true" (default) or "false" |
 | theme            | theme of the card (`dark`, `dim`, `auto`, `auto-dim`, `light`) | "light"                     |
 
+
+## Override Styles
+
+You can go ahead and override any of these styles to customize your card further, create custom themes, or adjust the card in your website's layout
+
+```css
+bsky-widget {
+  --bsky-background: #fff;
+  --bsky-primary: #1185fe;
+  --bsky-primary-hover: #4ca2fe;
+  --bsky-text-on-primary: #fff;
+  --bsky-text-on-background: #0b0f14;
+  --bsky-text-on-background-subtle: #42576c;
+  --bsky-text-large: 1.4rem;
+  --bsky-text-large-line-height: 1.8rem;
+  --bsky-text-medium: 1rem;
+  --bsky-text-small: 0.9rem;
+
+  font-family: Arial, Helvetica, sans-serif, -apple-system, sans-serif;
+  width: 350px;
+  max-width: 100%;
+  min-height: 170px;
+  display: inline-block;
+  box-shadow: 1px 1px 8px 1px #0002;
+  border-radius: 8px;
+}
+```
+
 ## Migration from v0.0 -> v0.1
-
-
-
 
 > [!Note]
 >

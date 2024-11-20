@@ -9,7 +9,7 @@
   --bsky-primary-hover: #4ca2fe;
   --bsky-text-on-primary: #fff;
   --bsky-text-on-background: #0b0f14;
-  --bsky-text-on-background-dim: #42576c;
+  --bsky-text-on-background-subtle: #42576c;
   --bsky-text-large: 1.4rem;
   --bsky-text-large-line-height: 1.8rem;
   --bsky-text-medium: 1rem;
@@ -38,26 +38,26 @@
 :host([theme="dark"]) {
   --bsky-background: #000000;
   --bsky-text-on-background: #F1F3F5;
-  --bsky-text-on-background-dim: #8c9eb2;
+  --bsky-text-on-background-subtle: #8c9eb2;
 }
 
 :host([theme="dim"]) {
   --bsky-background: #171E27;
   --bsky-text-on-background: #F1F3F5;
-  --bsky-text-on-background-dim: #aebbc9;
+  --bsky-text-on-background-subtle: #aebbc9;
 }
 
 @media (prefers-color-scheme: dark) {
   :host([theme="auto"]) {
     --bsky-background: #000000;
     --bsky-text-on-background: #F1F3F5;
-    --bsky-text-on-background-dim: #8c9eb2;
+    --bsky-text-on-background-subtle: #8c9eb2;
   }
 
   :host([theme="auto-dim"]) {
     --bsky-background: #171E27;
     --bsky-text-on-background: #F1F3F5;
-    --bsky-text-on-background-dim: #aebbc9;
+    --bsky-text-on-background-subtle: #aebbc9;
   }
 }
 
@@ -180,8 +180,8 @@ a:hover {
   gap: 2px;
 }
 
-.dim-text {
-  color: var(--bsky-text-on-background-dim);
+.subtle-text {
+  color: var(--bsky-text-on-background-subtle);
 }
 
 .followers {

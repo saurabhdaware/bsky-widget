@@ -16,10 +16,10 @@
     </div>
     <div class="name-handle-container padded">
       <h2>{{ props.displayName }}</h2>
-      <p class="handle dim-text">@{{ props.handle }}</p>
+      <p class="handle subtle-text">@{{ props.handle }}</p>
       <div class="followers">
-        <p><span class="count">{{ formatFollowCount(props.followersCount) }}</span> <span class="dim-text">Followers</span></p>
-        <p><span class="count">{{ formatFollowCount(props.followsCount) }}</span> <span class="dim-text">Following</span></p>
+        <p><span class="count">{{ formatFollowCount(props.followersCount) }}</span> <span class="subtle-text">Followers</span></p>
+        <p><span class="count">{{ formatFollowCount(props.followsCount) }}</span> <span class="subtle-text">Following</span></p>
       </div>
     </div>
   </div>
