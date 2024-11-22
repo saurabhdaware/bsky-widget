@@ -2,7 +2,7 @@
 
 Unofficial Bluesky Profile Cards for Bluesky Friends 🦋
 
-**Card Generator UI: https://bsky-widget.saurabhdaware.in/**
+**Card Generator UI: https://bsky-widget.srbh.dev/**
 
 ## Usage
 
